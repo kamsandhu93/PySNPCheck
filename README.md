@@ -1,3 +1,5 @@
+# UNDER CONSTRUCTION
+
 # PySNPCheck
 PySNPCheck is a command line program that aims to replace the popular web
 application SNPCheck. The programs main function is to find variants in
