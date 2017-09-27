@@ -117,6 +117,18 @@ Python pysnpcheck.py CEP290_EX19 AGGGAGAAAGTGGGATTAAGATC AGCAAGGCAAATCAACTGGA 12
 ```
 
 ## Local run
+
+This mode allows the user to input there own BLAST and variant (SQLlite) databses into the program. This allows for complete control of the data sources by the users, allowing the program to work across various genomes and variant sources. 
+
+For this the required dependancies include:
+* Command line BLAST only
+* A BLAST database
+* A variant database in SQlite format
+
+#### BLAST database
+
+#### Variant database - SQlite
+
 ## Example usage
 ## Versioning
 ## Acknowledgements 
