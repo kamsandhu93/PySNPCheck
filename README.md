@@ -10,6 +10,12 @@ Furthermore users can also specify their own databases for input, allowing
 for variant searching across many species. See usage for further details.
 
 ## Running the program
+There are 3 different ways to run the program:
+1. Default : Optimum.
+2. Remotely Via NCBI servers.
+3. Locally using input data sources.
+These are described in more detail bellow.
+
 The program can be run on the command line using the Python prompt
 followed by pysnpcheck.py:
 
@@ -48,15 +54,15 @@ Python pysnpcheck.py example_primers.txt
 
 ## Default run: Optimum
 
-This will initiate a default run, where primers are searched against
+This will initiate a default run which has been identified as the optimum way for searchng for variants. This includes the fastest run, whilst using the least local memory space. Primers are searched against the human genome assembly
 hg38, and the latest build of dbSNP. Local BLAST and the NCBIS Entrez is used here.
 For this the required dependancies include:
 * A local installation of command line BLAST, executables can be found
 at the NCBI FTP site by following this link: [Link](ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/). Note this
 dependency can be bypassed if using the -rb remote BLAST argument (see later).
 * The Biopython Python package installed by following this link: [Link](http://biopython.org/wiki/Download)
-* A local BLAST database formatted for each chromosome. This can be obtained from the following link: [Link]()
-INSERT LINK TO DROP BOX. Simply place the "blastdb" directory in the same directory as the main
+* A local BLAST database formatted for each chromosome. This can be obtained from the following link: [Link](https://www.dropbox.com/sh/5gaaavpp0hxzaou/AADvXGBHRBj0Hxoig0DQCmbva?dl=0)
+. Simply place the "blastdb" directory in the same directory as the main
 Python script.
 * The user should also specify their email on the first line of the email.txt file.
 This is necessary when using Entrez to search dbSNP. The email.txt file must also
@@ -74,22 +80,42 @@ Results are printed to the command line.
 
 
 
+### Hg19 liftover
 
+The default run mode returns the results with coordinates relative to the hg38 assembly. The hg19 argument can be used to output the results with the hg19 coordinates instead.
 
-
-
-## Hg19 liftover
 Argument: -hg19
-
 
 Optional dependancies include:
 * The pyliftover Python package which can be obtained by following this link:
 [Link](https://pypi.python.org/pypi/pyliftover). Neccassary if using the -hg19 argument.
 
+Example run:
+```
+Python pysnpcheck.py CEP290_EX19 AGGGAGAAAGTGGGATTAAGATC AGCAAGGCAAATCAACTGGA 12 -hg19
+```
 
-## Remote BLAST
+## Remote run
+
+This mode works the same way as the default mode, however remote BLAST is used in place of local BLAST. This has several advantages, such as eliminating the need for a local BLAST database to be stored. All databases are coonected to remotely via the NCBI servers. The program returns variants found in the primer regions relative to the hg38 assembly. 
+
+For this the required dependancies include:
+* Only Biopython is required.
+
 Argument: -rb
-## Custom data sources
+
+Example of Remote run:
+```
+Python pysnpcheck.py CEP290_EX19 AGGGAGAAAGTGGGATTAAGATC AGCAAGGCAAATCAACTGGA 12 -rb
+```
+
+The hg19 liftover argument can be also be used with a remote run.
+Example of Remote run with hg19 liftover:
+```
+Python pysnpcheck.py CEP290_EX19 AGGGAGAAAGTGGGATTAAGATC AGCAAGGCAAATCAACTGGA 12 -rb -hg19
+```
+
+## Local run
 ## Example usage
 ## Versioning
 ## Acknowledgements 
