@@ -14,6 +14,7 @@ There are 3 different ways to run the program:
 1. Default : Optimum.
 2. Remotely Via NCBI servers.
 3. Locally using input data sources.
+
 These are described in more detail bellow.
 
 The program can be run on the command line using the Python prompt
