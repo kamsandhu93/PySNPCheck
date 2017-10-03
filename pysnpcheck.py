@@ -94,7 +94,7 @@ def local_blast(Primer_seq, chromosome, blastdb_path):
 
     # If user wants to use the supplied BLAST DB
     if blastdb_path == "use_hg38":
-        blastDB_loc = (dir_path +'{1}blastdb{1}hg38{1}chr{0}{1}chr{0}.fa'.format(
+        blastDB_loc = (dir_path +'{1}hg38{1}chr{0}{1}chr{0}.fa'.format(
                        chromosome, os.sep))
 
     else:
