@@ -1,5 +1,3 @@
-# UNDER CONSTRUCTION
-
 # PySNPCheck
 PySNPCheck is a command line program that aims to replace the popular web
 application SNPCheck. The programs main function is to find variants in
@@ -155,6 +153,8 @@ Python pysnpcheck.py CEP290_EX19 AGGGAGAAAGTGGGATTAAGATC AGCAAGGCAAATCAACTGGA 12
 
 Version 1.00 
 
+
 ## Acknowledgements 
 
-Acknowldegments to the NCBI
+Acknowldegments to the NCBI for providing [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi) and [dbSNP](https://www.ncbi.nlm.nih.gov/projects/SNP/), [Biopyhton](http://biopython.org) and the original [SNPCheck](https://secure.ngrl.org.uk/SNPCheck/snpcheck.htm;jsessionid=530F015F6FE3CCD20221B182B1DE9839).
+
