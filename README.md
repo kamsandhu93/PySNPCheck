@@ -63,7 +63,7 @@ at the NCBI FTP site by following this link: [Link](ftp://ftp.ncbi.nlm.nih.gov/b
 dependency can be bypassed if using the -rb remote BLAST argument (see later).
 * The Biopython Python package installed by following this link: [Link](http://biopython.org/wiki/Download)
 * A local BLAST database formatted for each chromosome. This can be obtained from the following link: [Link](https://www.dropbox.com/sh/5gaaavpp0hxzaou/AADvXGBHRBj0Hxoig0DQCmbva?dl=0)
-. Simply place the "blastdb" directory in the same directory as the main
+. Simply place the "hg38" directory in to the same directory as the main
 Python script.
 * The user should also specify their email on the first line of the email.txt file.
 This is necessary when using Entrez to search dbSNP. The email.txt file must also
@@ -125,10 +125,36 @@ For this the required dependancies include:
 * A BLAST database
 * A variant database in SQlite format
 
+Arguments: -lb [path to blast database] , -sql [path to sqlite database]
+
+More information on the database types:
+
 #### BLAST database
+The input BLAST database must be a genome fasta file that has been converted into a BLAST database using the "makeblastdb" program supplied with command line mation on how to make your own BLAST database can be founf [here](https://www.ncbi.nlm.nih.gov/books/NBK279688/).
 
 #### Variant database - SQlite
+The input variant database must be an sqlite database. Each chromosome must have its own table that is named correspondingly, in the format "chrN" where N is the letter or number of the chromosome. For example chromosome x's table should be named chrX. Each table should follow the following shcema:
+* coordinate INT – The chromosomal coordinate of the variant.
+* rs TEXT – The RS number of the variant. 
+*	chromosome TEXT – The chromosome the variant is found on.
+*	valid TEXT – The validation status of the variant. 
+*	dbSNPAdd INT – The dbSNP build the variant was added in.
+*	dbSNPUpdate INT – The most recent dbSNP build the variant was updated in.
 
-## Example usage
+The last two collumns including dbSNP info can be left blank if they are not applicable to your data.
+
+
+#### Example usage
+
+```
+Python pysnpcheck.py CEP290_EX19 AGGGAGAAAGTGGGATTAAGATC AGCAAGGCAAATCAACTGGA 12 -lb user/blastdb.fasta - sql  user/variatdb.db
+```
+
+
 ## Versioning
+
+Version 1.00 
+
 ## Acknowledgements 
+
+Acknowldegments to the NCBI
